@@ -1,0 +1,128 @@
+Medical Herb, &H16EA6, &H1796F
+Healing Seed, &H16EB6, &H1797C
+Healing Drop, &H16EC6, &H17989
+Antidote, &H16ED6, &H17996
+Angel Wing, &H16EE6, &H1799F
+Fairy Powder, &H16EF6, &H179AA
+Healing Water, &H16F06, &H179B7
+Fairy Tear, &H16F16, &H179C5
+Healing Rain, &H16F26, &H179D0
+Power Water, &H16F36, &H179DD
+Protect Milk, &H16F46, &H179E9
+Quick Chicken, &H16F56, &H179F6
+Running Pimento, &H16F66, &H17A04
+Cheerful Bread, &H16F76, &H17A14
+Bright Honey, &H16F86, &H17A23
+Brave Apple, &H16F96, &H17A30
+Shining Ball, &H16FA6, &H17A3C
+Blizzard, &H16FB6, &H17A49
+Holy Thunder, &H16FC6, &H17A52
+Power Ring, &H16FD6, &H17A5F
+Protect Ring, &H16FE6, &H17A6A
+Quick Ring, &H16FF6, &H17A77
+Running Ring, &H17006, &H17A82
+White Ring, &H17016, &H17A8F
+Black Ring, &H17026, &H17A9A
+Evil Ring, &H17036, &H17AA5
+Leather Glove, &H17046, &H17AAF
+Power Glove, &H17056, &H17ABD
+Brass Knuckles, &H17066, &H17AC9
+Iron Knuckles, &H17076, &H17AD8
+Misty Knuckles, &H17086, &H17AE6
+Giant Knuckles, &H17096, &H17AF5
+Evil Knuckles, &H170A6, &H17B04
+Short Axe, &H170B6, &H17B12
+Hand Axe, &H170C6, &H17B1C
+Middle Axe, &H170D6, &H17B25
+Power Axe, &H170E6, &H17B30
+Battle Axe, &H170F6, &H17B3A
+Large Axe, &H17106, &H17B45
+Great Axe, &H17116, &H17B4F
+Heat Axe, &H17126, &H17B59
+Atlas Axe, &H17136, &H17B62
+Ground Axe, &H17146, &H17B6C
+Rune Axe, &H17156, &H17B77
+Evil Axe, &H17166, &H17B80
+Wooden Arrow, &H17176, &H17B89
+Iron Arrow, &H17186, &H17B96
+Steel Arrow, &H17196, &H17BA1
+Robin Arrow, &H171A6, &H17BAD
+Assault Shell, &H171B6, &H17BB9
+Great Shot, &H171C6, &H17BC7
+Nazca Cannon, &H171D6, &H17BD2
+Buster Shot, &H171E6, &H17BDF
+Hyper Cannon, &H171F6, &H17BEB
+Grand Cannon, &H17206, &H17BF8
+Evil Shot, &H17216, &H17C05
+Wooden Stick, &H17226, &H17C0F
+Short Sword, &H17236, &H17C1C
+Middle Sword, &H17246, &H17C28
+Long Sword, &H17256, &H17C35
+Steel Sword, &H17266, &H17C40
+Achilles Sword, &H17276, &H17C4C
+Broad Sword, &H17286, &H17C5B
+Buster Sword, &H17296, &H17C67
+Great Sword, &H172A6, &H17C74
+Critical Sword, &H172B6, &H17C80
+Battle Sword, &H172C6, &H17C8F
+Force Sword, &H172D6, &H17C9C
+Counter Sword, &H172E6, &H17CA8
+Levanter, &H172F6, &H17CB6
+Dark Sword, &H17306, &H17CBF
+Wooden Sword, &H17316, &H17CCA
+Short Spear, &H17326, &H17CD7
+Bronze Lance, &H17336, &H17CE3
+Spear, &H17346, &H17CF0
+Steel Lance, &H17356, &H17CF6
+Power Spear, &H17366, &H17D02
+Heavy Lance, &H17376, &H17D0E
+Javelin, &H17386, &H17D1A
+Chrome Lance, &H17396, &H17D22
+Valkyrie, &H173A6, &H17D2F
+Holy Lance, &H173B6, &H17D38
+Mist Javelin, &H173C6, &H17D43
+Halberd, &H173D6, &H17D50
+Evil Lance, &H173E6, &H17D58
+Wooden Rod, &H173F6, &H17D63
+Short Rod, &H17406, &H17D6E
+Bronze Rod, &H17416, &H17D78
+Iron Rod, &H17426, &H17D83
+Power Stick, &H17436, &H17D8C
+Flail, &H17446, &H17D98
+Guardian Staff, &H17456, &H17D9E
+Indra Staff, &H17466, &H17DAD
+Mage Staff, &H17476, &H17DB9
+Wish Staff, &H17486, &H17DC4
+Great Rod, &H17496, &H17DCF
+Supply Staff, &H174A6, &H17DD9
+Holy Staff, &H174B6, &H17DE6
+Freeze Staff, &H174C6, &H17DF1
+Goddess Staff, &H174D6, &H17DFE
+Mystery Staff, &H174E6, &H17E0C
+Demon Rod, &H174F6, &H17E1A
+Iron Ball, &H17506, &H17E24
+Short Knife, &H17516, &H17E2E
+Dagger, &H17526, &H17E3A
+Knife, &H17536, &H17E41
+Thieve's Dagger, &H17546, &H17E47
+Katana, &H17556, &H17E57
+Ninja Katana, &H17566, &H17E5E
+Gisarme, &H17576, &H17E6B
+Taros Sword, &H17586, &H17E73
+Right of Hope, &H17596, &H17E7F
+Wooden Panel, &H175A6, &H17E8D
+Sky Orb, &H175B6, &H17E9A
+Cannon, &H175C6, &H17EA2
+Dry Stone, &H175D6, &H17EA9
+Dynamite, &H175E6, &H17EB3
+Arm of Golem, &H175F6, &H17EBC
+Pegasus Wing, &H17606, &H17EC9
+Warrior Pride, &H17616, &H17ED6
+Silver Tank, &H17626, &H17EE4
+Secret Book, &H17636, &H17EF0
+Vigor Ball, &H17646, &H17EFC
+Mithril, &H17656, &H17F07
+Life Ring, &H17666, &H17F0F
+Cotton Balloon, &H17676, &H17F19
+Chirrup Sandals, &H17686, &H17F28
+Empty, &H17696, &H17F38

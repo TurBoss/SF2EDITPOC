@@ -1,0 +1,9 @@
+0, Special Attack
+3, Magic Drain
+65, Heal Item
+67, Buff Item
+128, Attack
+130, Debuff
+193, Heal
+194, Buff
+195, Egress

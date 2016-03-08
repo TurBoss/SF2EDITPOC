@@ -1,0 +1,189 @@
+
+ Shining Force 2 Rom Organization
+ --------------------------------
+
+ 24 May 06
+
+
+ Overview
+ --------
+
+ This document is an overview of what I know of how logistical data is stored
+ in Shining Force 2. I did not include the address where these things are
+ found; however you should be able to find the bytes fairly easily when you
+ know the scheme in which they're stored. The notes I took for my personal use
+ are under the file SF2 Info.txt. It has a few addresses in it, some odd 
+ rambling, and should hopefully be completely incomprehensible to anyone who
+ is not me.
+
+
+ Names
+ -----
+
+ The names of items, heroes, and enemies are stored as readable ASCii; any
+ editor would be able to find them. They all seem to be stored together in
+ one big chunk. There's a byte that preceeds each name that states how long
+ it is - it should be easily possible to shuffle them around by changing
+ these digits. As for expanding the entire area - I dunno.
+
+ One of the most useful things about these names was that it was an extra
+ clue when I was poking this utility into existance - item, character,
+ and monster lists are in the same order as they're presented here. It
+ was convenient, to say the least.
+
+
+ Items
+ -----
+
+ Items are stored in blocks of 16 bytes:
+
+ [4 bytes for equipment table][Max Range][Min Range][Gold][Gold][Type]
+ [On use skill][Ability Code][Ability Value][Ability Code][Ability Value][0][0]
+
+ I think the two zeroes are just a buffer to make it an even 16 bytes - however
+ I've neglected to look at every item to see if these are blank for everything.
+
+ Ability Codes tell the game if the next number increases/decreases a stat, or
+ does something else. There are several Ability Codes I'm not entirely sure of their
+ function - see AttributeCodes.txt to see/change what my editor uses for these.
+
+ It isn't clear where items that regenerate HP or MP get their mojo from - I have
+ not a clue.
+
+ The equipment table is basically a boolean table, a bunch of 10010101's. The start
+ of it in hex goes like...
+ 
+ 01 Swordsman
+ 02 Knight
+ 04 Warrior
+ 08 Mage
+ 10 Priest
+ 20 Archer
+
+ The other note file has these numbers in full; I don't want this one to get bogged
+ down.
+
+
+ Characters
+ ----------
+
+ In-Battle Sprite -
+
+ This controls the sprite displayed in the action cut scenes the game plays:
+
+ [For Class][Model][Color Palette]
+
+ Changing [For Class] here is necessary if you give a character a class they're not 
+ supposed to have normally. Otherwise everyone'd look like Bowie during a fight. The
+ Color Palettes are somewhat disappointing - the only ones that look good are the ones
+ intended to be in the game. It'd be real nice to be able to find where they're pointing
+ to, just the same - since they're referenced by model here, it implies they're prefaced 
+ by that bit of data. What I'm getting at, it would be neat if, say,  you could say have
+ 30 master monks all with a different outfit, or such.
+
+ 
+ Starting Info -
+
+ [Class][Level][Item][Item][Item][Item] 
+
+ Wholly simple here. If not mentioned elsewhere - just add 80 in hex (or 128 in decimal) to
+ the base item code of an item to have it equipped.
+
+
+ Growth Info -
+
+ [Class][HP Growth Type][Base HP][Projected HP][MP Growth Type][Base MP][Projected MP]
+ [ATK Growth Type][Base ATK][Projected ATK][DEF Growth Type][Base DEF][Projected DEF]
+ [AGI Growth Type][Base AGI][Projected AGI][Level Learned At][Spell Code][..][..][FF or FE]
+
+ The spell lists are variable in length. A character's growth block is ended with an FF
+ or FE, which has some affect on if the spell list before carries over. It did not
+ seem completely clear, so as of the moment I'm writing this, I did not make this byte 
+ editable. This may change by release.
+
+ Right above this block are addresses that reference in the ROM just where a person's
+ growth info is. I'm going to atempt to see if spell lists can easily be expanded; these
+ blocks of information will need to be updated, at the very least...
+
+ Now, there's a table that points to where to get this data per character. So Bowie has
+ a pointer, Sarah has one, and so on. The game will go to that address in the ROM,
+ and then parse on from there until it gets what it needs. So if you set Bowie, Sarah,
+ Jaha, or Chester to be a Mage, the parser goes from there to the first instance of
+ a Mage. Which will be Kazin's stats, unless you set the [Class] byte here (the For
+ Class... selection in Class Stats controls this byte in the editor). But if you set
+ Slade to a Mage, it'll go on until it reaches Tyrin.
+
+ This is useful to know if anything really fancy wants to be done here; it should be
+ very possible to insert new stat data in here, for alternate classes or other things
+
+
+ Monsters
+ --------
+ 
+ In-Battle Sprite -
+
+ [Model][Color Palette]
+
+ This bank is at the end after the raw monster table.
+
+
+ ABOUT MONSTERS -
+
+ As you can see, there are double entries at the end of the list for some monsters
+ with alternate inventories. What can be infered from this is that the battle list
+ that specifies which monsters you face can only add ONE thing to a monster's
+ inventory. I tested equiping a ring on an Ooze and it didn't work like it should:
+ I think the game can only apply the stats of one "base" equipped item and the 
+ extra "added" item at battle load time.
+
+ I'm pausing documentation at this section so I can get an initial release sometime 
+ before I move. I apologize for any inconvenience this may cause.
+
+
+ Stores
+ ------
+
+ [Store Length][Item Code 1][..]
+
+ Store length tells how many item slots ahead of that byte to read in. At the end of 
+ this list is an "uber store" with every item in it - it may or may not be accessable
+ by a sekrit code or some such. There is a max size a store can take without glitching up,
+ which is 128, I assume.
+
+
+ Stuff I Don't Know Yet
+ ----------------------
+
+ This is the stuff I spent some time looking for, but never found. If you know what's up with
+ them, I'd really like to know, too: 
+
+ Most importantly, I have not found the region where the icon/avatar data is stored. I don't
+ know what is up with this; it doesn't look like it uses classes as a byte - at least anywhere
+ near one another. I assume this block includes not only monster and hero icons, but NPCs
+ as well. It has to be tied to class for the Force members - changing Bowie to anything
+ other than swordyman messes up his graphic to the extreme. There are workarounds, such as
+ editing the swordyman class and editing the graphics by hand - but it doesn't feel complete
+ to me.
+
+ Monster encounters. Being able to edit the battles would be very very nice, since difficultly
+ and providing a sort of "remixed" game were the main things I wanted this editor to provide
+ for. What I do know with little doubt, is that there is room here to add one item to a monster,
+ and only one item to a monster. I also expect this is the only place you can equip a ring to
+ a monster in addition to a weapon. If I could have found a document that stated what items every
+ monster in the game has I might have been able to make a slightly better search for this, but
+ as it stands I suck and am the fail. I consider it a learning experience. Cereal.
+
+ Somewhat esoteric stuff:
+
+ I have no idea what the mystery staff's attribute is. It's a MYSTERY. Like with the Holy Staff
+ and Life Ring, I assumed it was the regen HP/MP each turn affect. But editing the number does 
+ NOTHING. I have no idea where the Chirrup Sandels's sound effect and "uber glitch" powers come
+ from, either. A somewhat related tangent to this are spells, and their "true effects." As you've
+ seen above, there's no "insta-kill" boolean to say if a spell is desoul, or detox, or whatever.
+
+ Dialogue and map layouts weren't something I ever intended to have this program edit, which
+ is why I'm just throwing all this stuff "out there" in the hope that a superhero may someday
+ go where I dare not. My brain was trying to convince me to try looking for the map thing once, 
+ but I punched it with my beefy fist and it shut up.
+
+ Um... yeah.

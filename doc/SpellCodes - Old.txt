@@ -1,0 +1,123 @@
+&H0, Heal 1
+&H1, Aura 1
+&H2, Detox 1
+&H3, Boost 1
+&H4, Slow 1
+&H5, Attack 1
+&H6, Dispel 1
+&H7, Muddle 1
+&H8, Desoul 1
+&H9, Sleep 1
+&HA, Egress 1
+&HB, Blaze 1
+&HC, Freeze 1
+&HD, Bolt 1
+&HE, Blast 1
+&HF, Magic Drain
+&H10, Medical Herb
+&H11, Flame Breath
+&H12, Snow Breath
+&H13, Demon Breath
+&H14, Power Water
+&H15, Protect Milk
+&H16, Quick Chicken
+&H17, Running Pimento
+&H18, Cheerful Bread
+&H19, Burst Rock
+&H1A, Laser
+&H1B, Katon 1
+&H1C, Raijin 1
+&H1D, Dao 1
+&H1E, Apollo 1
+&H1F, Neptune 1
+&H20, Atlas 1
+&H21, Fairy Powder
+&H22, Restore MP?
+&H23, Bright Honey
+&H24, Brave Apple
+&H25, Shining Ball
+&H26, Blizzard
+&H27, Holy Thunder
+&H28, Kraken Bubble Breath
+&H29, Kiwi Flame Breath
+&H2A, Right of Hope
+&H2B, Odd Eye Laser
+&H37, Freeze Game
+&H3F, Nothing
+&H40, Heal 2
+&H41, Aura 2
+&H42, Detox 2
+&H43, Boost 2
+&H44, Slow 2
+&H45, Attack Boost
+&H47, Muddle 2
+&H48, Desoul 2
+&H49, Ally Sleep
+&H4A, Fairy of Nothing (Egress 2?)
+&H4B, Blaze 2
+&H4C, Freeze 2
+&H4D, Bolt 2
+&H4E, Blast 2
+&H4F, MP Ally Absorb
+&H50, Healing Seed
+&H51, Flame Breath 2
+&H52, Snow Breath 2
+&H53, Demon Breath 2
+&H54, Attack Increase
+&H55, Defense Increase
+&H56, Agility Increase
+&H57, Move Increase
+&H58, Max HP Increase
+&H5B, Katon 2
+&H5C, Raijin 2
+&H5D, Dao 2
+&H5E, Apollo 2
+&H5F, Neptune 2
+&H60, Atlas 2
+&H62, Fairy Tear
+&H63, Max MP Increase
+&H64, Level Up
+&H66, Damage Fairy
+&H68, Bubble Breath
+&H69, Kiwi Flame Breath 2
+&H6A, MP Recover
+&H80, Heal 3
+&H81, Aura 3
+&H82, Detox 3
+&H83, Boost Item
+&H84, Unboost Item
+&H85, Attack Item
+&H86, Silence Fairy
+&H87, Muddle Fairy
+&H88, Desoul Fairy
+&H89, Sleep Fairy
+&H8B, Blaze 3
+&H8C, Freeze 3
+&H8D, Bolt 3
+&H8E, Blast 3
+&H8F, MP Absorb Fairy
+&H90, Healing Drop
+&H91, Flame Breath 3
+&H92, Snow Breath 3
+&H94, Attack Increase
+&H95, Defense Increase
+&H96, Agility Increase
+&H97, Move Increase
+&H98, Max HP Increase
+&H9B, Katon 3
+&H9C, Raijin 3
+&HA2, MP Restore
+&HA3, Max MP Increase
+&HA4, Level Up
+&HA9, Kiwi Flame Breath 3
+&HC0, Heal 4
+&HC1, Aura 4
+&HC2, Detox 4
+&HC3, Adjacent Boost
+&HC4, Adjacent Unboost
+&HCB, Blaze 4
+&HCC, Freeze 4
+&HCD, Bolt 4
+&HCE, Blast 4
+&HCF, MP Absorb Fairy
+&HE9, Kiwi Flame Breath 4

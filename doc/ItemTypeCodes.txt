@@ -1,0 +1,15 @@
+Empty, &H0
+Normal Weapon, &H2
+Special Item, &H8
+Special Weapon, &HA
+Normal Ring, &HC
+Story Item, &H18
+Force Sword, &H1A
+Normal Item, &H20
+Battle Item, &H28
+Cursed - Glove Axe Shot Lance, &H4A
+Indra Staff?, &H82
+Magic Weapon, &H8A
+Magic Ring, &H8C
+Cursed - Sword Rod, &HCA
+Cursed Ring, &HCC

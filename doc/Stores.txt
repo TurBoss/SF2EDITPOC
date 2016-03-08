@@ -1,0 +1,33 @@
+&H20878
+&H20A01
+Weapon Merchant 1
+Weapon Merchant 2
+Weapon Merchant 3
+Weapon Merchant 4
+Weapon Merchant 5
+Weapon Merchant 6
+Weapon Merchant 7
+Weapon Merchant 8
+Weapon Merchant 9
+Weapon Merchant 10
+Weapon Merchant 11
+Weapon Merchant 12
+Weapon Merchant 13
+Weapon Merchant 14
+Weapon Merchant 15
+Item Merchant 1
+Item Merchant 2
+Item Merchant 3
+Item Merchant 4
+Item Merchant 5
+Item Merchant 6
+Item Merchant 7
+Item Merchant 8
+Item Merchant 9
+Item Merchant 10
+Item Merchant 11
+Item Merchant 12
+Item Merchant 13
+Item Merchant 14
+Item Merchant 15
+Bonus Shop

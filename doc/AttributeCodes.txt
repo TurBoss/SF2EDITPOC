@@ -1,0 +1,15 @@
+0, Nothing
+1, Evade Up?
+2, Critical Up
+3, Double Attack Up?
+4, Counter Up
+5, ???
+6, Attack Up
+7, Defense Up
+8, Agility Up
+9, Move Up
+10, Attack Down
+11, Defense Down
+12, Agility Down
+13, Move Down 
+14, Instant Kill?

@@ -1,0 +1,299 @@
+Promotion Items start at
+
+2106D
+
+
+Item Layout Known:
+
+[4 bytes for equipment table][Max Range][Min Range][Gold][Gold][Type][On use skill][Ability Code][Ability Value][Ability code][Ability value]
+
+Ability Codes for items:
+
+01 Evade Up ?
+02 Critical Up
+03 Double Attack Up?
+04 Counter Up
+
+06 Atk up
+07 Def up
+08 Agi up
+09 MOVE up
+0A Atk Down
+0B Def down
+0c Agi down
+0D Move down 
+
+0E Instant kill?
+
+The critical/counter swords have a value of One, dunno if it's a simple binary yes/no or if using a big number makes these actions more likely.
+
+
+Types:
+
+20 Consumable Item
+8A Levanter
+CA Cursed Sword
+02 Normal Weapon
+0A Achilles Sword/Buster Shot
+
+
+Equip Codes:
+01 Swordsman
+02 Knight
+04 Warrior
+08 Mage
+10 Priest
+20 Archer
+40 Birdman
+80 Wolfman
+100 Ranger
+200 Phoenik
+400 Thief
+800 Tortise
+1000 Hero
+2000 Paladin
+4000 Pegasus Knight
+8000 Gladiator
+10000 Baron
+20000 Wizard
+40000 Sorcerer
+80000 Vicar
+100000 Master Monk
+200000 Sniper
+400000 Brass Gunner
+800000 Bird Battler
+1000000 Wolf Baron
+2000000 Bow Knight
+4000000 Phoenix
+8000000 Ninja
+10000000 Monster
+20000000 Robot
+40000000 Golem
+80000000 Red Baron
+
+
+Ability Codes:
+00 Heal 1
+01 Aura 1
+02 Detox 1
+03 Boost 1
+04 Slow 1
+05 Attack 1
+06 Dispel 1
+07 Muddle 1
+08 Desoul 1
+09 Sleep 1
+0A Burn Item (Egress???)
+0B Blaze 1
+0C Freeze 1
+0D Bolt 1
+0E Blast 1
+0F Magic Drain
+10 Heal 1
+11 Flame Breath
+12 Snow Breath
+13 Demon Breath
+14 Self Attack Increase
+15 Self Defense Increase
+16 Self Agility Increase
+17 Self Move Increase
+18 Self Max HP Increase
+19 No effect
+1A No effect
+1B Katon 1
+1C Raijin 1
+1D Dao 1
+1E Apollo 1
+1F Neptune 1
+20 Atlas 1
+21 Antidote?
+22 Restore MP - Fairy Tear?
+23 Self Max MP Increase
+24 Self Level Up
+25 Fire Breath
+26 Freeze Breath
+27 Bolt Breath
+28 Kraken Bubble Breath
+29 Kiwi Flame Breath
+2A Restore MP to All - Light of Hope?
+2B Odd Eye Laser
+2C Freeze Game
+2D Freeze Game
+2E Freeze Game
+2F Freeze Game
+30 Freeze Game
+3A More Different Frozen Game
+3E Freeze Game
+3F Nothing
+40 Heal 2
+41 Aura 2
+42 Detox 2
+43 Boost 2
+44 Slow 2
+45 Attack Boost
+46 No effect fairy
+47 Muddle 2
+48 Desoul 2
+49 Ally Sleep
+4A Fairy of Nothing
+4B Blaze 2
+4C Freeze 2
+4D Bolt 2
+4E Blast 2
+4F MP Ally Absorb
+50 HP Healing Item
+51 Flame Breath 2
+52 Wind Breath 2
+53 Demon Breath 2
+54 Attack Increase
+55 Defense Increase
+56 Agility Increase
+57 Move Increase
+58 Max HP Increase
+59 Fairy of Nothing
+5A Fairy of Nothing
+5B Katon 2
+5C Raijin 2
+5D Dao 2
+5E Apollo 2
+5F Neptune 2
+60 Atlas 2
+61 More Better Game Crash
+62 MP Recover
+63 Max MP Increase
+64 Level Up
+65 Game Freeze
+66 Fairy of Hurt
+67 Fairy of Hurt
+68 Light bubble Breath
+69 Flame Breath 3
+6A MP Recover
+6B Damage Fairy
+6C Game Freeze
+6D Game Freeze
+6E Weirdly Aimed Game Freeze
+6F Game Freeze
+74 Freeze
+7F Nothing Fairy
+80 Heal 3
+81 Aura 3
+82 Detox 3
+83 Boost Item
+84 Unboost Item
+85 Attack Item
+86 Silence Fairy
+87 Muddle Fairy
+88 Desoul Fairy
+89 Sleep Fairy
+8A Nothing Fairy
+8B Blaze 3
+8C Freeze 3
+8D Bolt 3
+8E Blast 3
+8F MP Absorb Fairy
+90 Heal 4?
+91 Flame Breath 3
+92 Wind Breath 3
+93 Hurt Fairy
+94 Attack Increase
+95 Defense Increase
+96 Agility Increase
+97 Move Increase
+98 Max HP Increase
+99 Nothing Fairy
+9B Katon 3
+9C Raijin 3
+A0 Hurt Fairy
+A1 Nothing Fairy
+A2 MP Restore
+(Getting sick of this task around here)
+A3 Max MP Increase
+A4 Level Up
+A5 Damage Fairy
+A6 Damage Fairy
+A7 (Crash fairy, let's just fast forward shall we?)
+C0 Heal 4
+C1 Aura 4
+C2 Detox 4
+C3 Adjacent Boost
+C4 Adjacent Unboost (argh! seen this all already, fast forward? Used a save state editing FAQ on GameFAQs - the codes for character spells and weapon affects appear to be the same.)
+CB Blaze 4
+CC Freeze 4
+CD Bolt 4
+CE Blast 4
+CF MP Absorb Fairy
+- Everything above this seems to recycle the same dummy skills and game crashes over and over, so, I 'blah' in their general direction. -
+FF Nothing
+
+Oozes resist Neptune/Ice... note for monster stat testing
+
+
+
+Character Layouts
+
+ 1EE2F0
+
+ [Atk][Atk growth?][]
+
+ PALETTE LAYOUT  1F806
+
+ [For Class][Model][Color Palette]
+
+ 1EE7D0
+
+ [Class][Level][Item][Item][Item][Item]
+ ff0c
+
+ Spell Lists
+
+ 1EE300
+
+ 6 6 5 9 6 9 18
+
+ 
+ Class Layouts
+
+ 1EE890
+
+ [Move][9x?][4x?]
+
+ 21055
+
+ [Promotes into]
+
+ SPELL  176A6 : 17966
+
+ 8 Bytes
+ [Spell Code][MP Cost][Animation][Type][Max Range][Min Range][AoE][Damage]
+
+ 177BF - Bolt 4
+
+
+
+
+
+ENEMIES 56
+
+Blue Shaman
+
+1B30DE - Aura 3 spell
+
+Resistance Values
+
+1 25% Blast
+2 - 50% BLAST
+4 etc...
+8 - BOLT
+10 
+20 - FREEZE
+40 
+80 - BLAZE
+
+Add both, and you're weak to this element.
+
+
+
+Some nice guy in forum might have found class sprite offsets - 006C0C54
+
+C800D Sprite pointers
+[facing up][side facing][down facing] - C8F6A is bowie

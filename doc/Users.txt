@@ -1,0 +1,87 @@
+
+ Shining Force 2 Game Editor
+ ---------------------------
+
+ 9 July 06
+
+
+ Getting Started
+ ---------------
+
+ Currently the editor only supports the binary ROM format. If the ROM you
+ have is in the interleaved Super Magic Drive format (.smd), you can save
+ a copy of it in binary format by using the Convert -> SMD -> BIN menu
+ item.
+
+ A way to tell which version of the ROM you have if you're not sure is to
+ open it up, and try to edit something. If my program asplodes, then it's
+ an SMD, or a file that isn't a Shining Force 2 rom.
+
+
+ Names
+ -----
+
+ The names of Characters, Classes, Item, Monsters and Spells all will have
+ a pop-up text field with numbers in it. These numbers refer to what tile
+ is displayed in the name; this can include wacky things like part of
+ a health bar or the poison icon and such. 13 is the code used for a 
+ carriage return and a space, which is used in many, many items.
+
+
+ Character Stats
+ ---------------
+
+ The Projected Stat is how much a stat will be at level 30, at minimum. After 
+ a promotion, you can see how much a stat will increase by subtracting the 
+ base stat from the projected.
+
+ Everything beyond level 30 averages out to around 1.5 for each stat that can
+ grow, no matter who it is.
+
+ The "Use Base Class List" tells the game's level-function to go to
+ that guy's initial class for spell upgrades.
+
+
+ Vague Stat Calculator Tips
+ --------------------------
+
+ Highlight outputted stats with your cursor and copy and paste them with the 
+ Ctrl+C and Ctrl+V commands to make life bearable.
+
+ The Overwrite Base Stats field is needed to estimate what stats a character
+ can promote will have when promoted at X level. It should accept a blob of numbers
+ copypasta'ed from the output field.
+
+ This thing works by simulating results that the game might have, and then deriving
+ average data by brute forcing a lot of data out of it. Therefore, a larger number of
+ Iterations should yield more precise results, approaching (but never reaching), the 
+ true values. More than 100,000 passes is probably unnecessary, and requires more time 
+ to finish.
+
+ If you would like to continue to look at a specific part of the output chart while
+ pushing the button to generate many different numbers, click the text cursor to the line
+ you'd like to be at the bottom of text box.
+
+ The calculator is tied only to one Character Stats form, and not to any extras you may load.
+ It is kind of funky, but I believe this is the simplest way to go for all involved.
+
+
+ Getting Finished
+ ----------------
+
+ Since the SMD format is the most popular Genesis format, releasing
+ an IPS patch for both ROM formats would be a nicety. You can find a
+ file converter at Zophar's Domain under:
+
+ http://www.zophar.net/utilities/segautil.html
+
+ The program called ROM Converter looks like it should do it. I apologize
+ for not including a BIN -> SMD function in this program; I don't believe
+ it's worth the effort.
+
+ For creating an IPS patch, the program called Lunar IPS should work:
+
+ http://fusoya.eludevisibility.org/lips/
+
+ This was done by the superhero ROM hacker FuSoYa, famous for his awesome
+ Super Mario World editor.

@@ -1,0 +1,32 @@
+&H1, 4, Swordsman
+&H2, 4, Knight
+&H4, 4, Warrior
+&H8, 4, Mage
+&H10, 4, Priest
+&H20, 4, Archer
+&H40, 4, Birdman
+&H80, 4, Wolfman
+&H1, 3, Ranger
+&H2, 3, Phoenik
+&H4, 3, Thief
+&H8, 3, Tortise
+&H10, 3, Hero
+&H20, 3, Paladin
+&H40, 3, Pegasus Knight
+&H80, 3, Gladiator
+&H1, 2, Baron
+&H2, 2, Wizard
+&H4, 2, Sorcerer
+&H8, 2, Vicar
+&H10, 2, Master Monk
+&H20, 2, Sniper
+&H40, 2, Brass Gunner
+&H80, 2, Bird Battler
+&H1, 1, Wolf Baron
+&H2, 1, Bow Knight
+&H4, 1, Phoenix
+&H8, 1, Ninja
+&H10, 1, Monster
+&H20, 1, Robot
+&H40, 1, Golem
+&H80, 1, Red Baron

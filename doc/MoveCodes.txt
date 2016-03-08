@@ -1,0 +1,12 @@
+16, Warrior
+32, Horse
+48, Stealthy
+64, Brass Gunner
+80, Fly
+96, Float
+112, Water
+128, Archer
+144, Ranger
+160, Sniper
+176, Mage
+192, Priest

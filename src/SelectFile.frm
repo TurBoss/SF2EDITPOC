@@ -40,7 +40,7 @@ Begin VB.Form SelectFile
    Begin VB.FileListBox File1 
       Height          =   5355
       Left            =   2760
-      Pattern         =   "*.smd;*.bin"
+      Pattern         =   "*.smd;*.bin;sf2editconf.txt"
       TabIndex        =   1
       Top             =   120
       Width           =   3735
@@ -81,6 +81,14 @@ Private Sub cmdOpen_Click()
  On Error GoTo Ouch
  
  Freedfile = FreeFile()
+ 
+ If File1.FileName = "sf2editconf.txt" Then
+    MsgBox "Selected sf2editconf.txt : applying Disasm Mode !", vbOKOnly
+    disasmMode = True
+ Else
+    'MsgBox "sf2editconf.txt not selected : Rom Mode", vbOKOnly
+    disasmMode = False
+ End If
  
  Open File1.Path & "\" & File1.FileName For Binary As #Freedfile
   

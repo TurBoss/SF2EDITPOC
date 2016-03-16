@@ -84,7 +84,7 @@ Private Sub txtMaxLevel_Change()
  
  If ValidateInput(txtMaxLevel, False, True) = True Then
   Result = txtMaxLevel.Text
-  RomDump(38043) = Result
+  RomDump(MAXLEVEL_ORIGINAL_OFFSET) = Result
  End If
 End Sub
 
@@ -93,7 +93,7 @@ Private Sub txtMaxLevel_LostFocus()
  
  If ValidateInput(txtMaxLevel, False, False) = True Then
   Result = txtMaxLevel.Text
-  RomDump(38043) = Result
+  RomDump(MAXLEVEL_ORIGINAL_OFFSET) = Result
  End If
 End Sub
 
@@ -102,7 +102,7 @@ Private Sub txtMaxLevelPro_Change()
  
  If ValidateInput(txtMaxLevelPro, False, True) = True Then
   Result = txtMaxLevelPro.Text
-  RomDump(38051) = Result
+  RomDump(MAXLEVELUNPROMOTED_ORIGINAL_OFFSET) = Result
  End If
 End Sub
 
@@ -111,7 +111,7 @@ Private Sub txtMaxLevelPro_LostFocus()
  
  If ValidateInput(txtMaxLevelPro, False, False) = True Then
   Result = txtMaxLevelPro.Text
-  RomDump(38051) = Result
+  RomDump(MAXLEVELUNPROMOTED_ORIGINAL_OFFSET) = Result
  End If
 End Sub
 
@@ -120,8 +120,8 @@ Private Sub txtProLevel_Change()
  
  If ValidateInput(txtProLevel, False, True) = True Then
   Result = txtProLevel.Text
-  RomDump(134583) = Result
-  RomDump(135353) = Result
+  RomDump(PROMOTIONLEVEL_ORIGINAL_OFFSET) = Result
+  RomDump(135353) = Result ' Wiz note : Weapon item type equip check ... why change this ?
  End If
 End Sub
 
@@ -130,7 +130,7 @@ Private Sub txtProLevel_LostFocus()
  
  If ValidateInput(txtProLevel, False, False) = True Then
   Result = txtProLevel.Text
-  RomDump(134583) = Result
-  RomDump(135353) = Result
+  RomDump(PROMOTIONLEVEL_ORIGINAL_OFFSET) = Result
+  RomDump(135353) = Result ' Wiz note : Weapon item type equip check ... why change this ?
  End If
 End Sub

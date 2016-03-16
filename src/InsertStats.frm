@@ -227,15 +227,15 @@ Private Sub cmdAdd_Click()
     GuyPointers(Index) = GuyPointers(Index) + 17
     
     Result = CByte(Fix(GuyPointers(Index) / 65536#))
-    RomDump(&H1EE271 + Index * 4) = Result
+    RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + Index * 4) = Result
 
     WorkingNumber = CLng(GuyPointers(Index) - (65536 * CLng(Result)))
 
     Result = CByte(Fix(WorkingNumber / 256#))
-    RomDump(&H1EE271 + Index * 4 + 1) = Result
+    RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + Index * 4 + 1) = Result
 
     WorkingNumber = CLng(WorkingNumber - (256 * CLng(Result)))
-    RomDump(&H1EE271 + Index * 4 + 2) = CByte(WorkingNumber)
+    RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + Index * 4 + 2) = CByte(WorkingNumber)
        
    Next
   End If
@@ -246,15 +246,15 @@ Private Sub cmdAdd_Click()
   pJoinData = JoinDataAddress
   
     Result = CByte(Fix(JoinDataAddress / 65536#))
-    RomDump(&H1EE009) = Result
+    RomDump(ALLYSTARTDATAPOINTER_ORIGINAL_OFFSET + 1) = Result
 
     WorkingNumber = CLng(JoinDataAddress - (65536 * CLng(Result)))
 
     Result = CByte(Fix(WorkingNumber / 256#))
-    RomDump(&H1EE009 + 1) = Result
+    RomDump(ALLYSTARTDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) = Result
 
     WorkingNumber = CLng(WorkingNumber - (256 * CLng(Result)))
-    RomDump(&H1EE009 + 2) = CByte(WorkingNumber)
+    RomDump(ALLYSTARTDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = CByte(WorkingNumber)
   
     
   
@@ -262,15 +262,15 @@ Private Sub cmdAdd_Click()
   pClassData = ClassAddress
   
     Result = CByte(Fix(ClassAddress / 65536#))
-    RomDump(&H1EE00D) = Result
+    RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1) = Result
 
     WorkingNumber = CLng(ClassAddress - (65536 * CLng(Result)))
 
     Result = CByte(Fix(WorkingNumber / 256#))
-    RomDump(&H1EE00D + 1) = Result
+    RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) = Result
 
     WorkingNumber = CLng(WorkingNumber - (256 * CLng(Result)))
-    RomDump(&H1EE00D + 2) = CByte(WorkingNumber)
+    RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = CByte(WorkingNumber)
   
      
   
@@ -279,14 +279,14 @@ Private Sub cmdAdd_Click()
  Dim Roundover As Byte
  
  'Update 01010101 Pointer
- If RomDump(&H1EE015 + 2) < 239 Then
-   RomDump(&H1EE015 + 2) = RomDump(&H1EE015 + 2) + 17
+ If RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) < 239 Then
+   RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) = RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) + 17
  Else
-   Roundover = CByte(17 - (255 - RomDump(&H1EE015 + 2)))
+   Roundover = CByte(17 - (255 - RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2)))
  
-   RomDump(&H1EE015 + 2) = Roundover
+   RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) = Roundover
       
-   RomDump(&H1EE015 + 1) = RomDump(&H1EE015 + 1) + 1
+   RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 1) = RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 1) + 1
  End If
   
   ReloadPStats
@@ -400,15 +400,15 @@ Private Sub cmdRemove_Click()
     GuyPointers(Index) = GuyPointers(Index) - Blocklength
     
     Result = CByte(Fix(GuyPointers(Index) / 65536#))
-    RomDump(&H1EE271 + Index * 4) = Result
+    RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + Index * 4) = Result
 
     WorkingNumber = CLng(GuyPointers(Index) - (65536 * CLng(Result)))
 
     Result = CByte(Fix(WorkingNumber / 256#))
-    RomDump(&H1EE271 + Index * 4 + 1) = Result
+    RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + Index * 4 + 1) = Result
 
     WorkingNumber = CLng(WorkingNumber - (256 * CLng(Result)))
-    RomDump(&H1EE271 + Index * 4 + 2) = CByte(WorkingNumber)
+    RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + Index * 4 + 2) = CByte(WorkingNumber)
        
    Next
   End If
@@ -419,15 +419,15 @@ Private Sub cmdRemove_Click()
   pJoinData = JoinDataAddress
   
     Result = CByte(Fix(JoinDataAddress / 65536#))
-    RomDump(&H1EE009) = Result
+    RomDump(ALLYSTARTDATAPOINTER_ORIGINAL_OFFSET + 1) = Result
 
     WorkingNumber = CLng(JoinDataAddress - (65536 * CLng(Result)))
 
     Result = CByte(Fix(WorkingNumber / 256#))
-    RomDump(&H1EE009 + 1) = Result
+    RomDump(ALLYSTARTDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) = Result
 
     WorkingNumber = CLng(WorkingNumber - (256 * CLng(Result)))
-    RomDump(&H1EE009 + 2) = CByte(WorkingNumber)
+    RomDump(ALLYSTARTDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = CByte(WorkingNumber)
   
     
   
@@ -435,15 +435,15 @@ Private Sub cmdRemove_Click()
   pClassData = ClassAddress
   
     Result = CByte(Fix(ClassAddress / 65536#))
-    RomDump(&H1EE00D) = Result
+    RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1) = Result
 
     WorkingNumber = CLng(ClassAddress - (65536 * CLng(Result)))
 
     Result = CByte(Fix(WorkingNumber / 256#))
-    RomDump(&H1EE00D + 1) = Result
+    RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) = Result
 
     WorkingNumber = CLng(WorkingNumber - (256 * CLng(Result)))
-    RomDump(&H1EE00D + 2) = CByte(WorkingNumber)
+    RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = CByte(WorkingNumber)
   
      
   
@@ -454,14 +454,14 @@ Private Sub cmdRemove_Click()
  If isExpanded = False Then
  'Update 01010101 Pointer
  If isExpanded = False Then
- If RomDump(&H1EE015 + 2) > Blocklength - 1 Then
-   RomDump(&H1EE015 + 2) = RomDump(&H1EE015 + 2) - Blocklength
+ If RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) > Blocklength - 1 Then
+   RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) = RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) - Blocklength
  Else
-   Roundover = CByte((255 + RomDump(&H1EE015 + 2) - Blocklength))
+   Roundover = CByte((255 + RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) - Blocklength))
  
-   RomDump(&H1EE015 + 2) = Roundover
+   RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) = Roundover
       
-   RomDump(&H1EE015 + 1) = RomDump(&H1EE015 + 1) - 1
+   RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 1) = RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 1) - 1
  End If
  End If
   

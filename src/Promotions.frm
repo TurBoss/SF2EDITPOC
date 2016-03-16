@@ -161,7 +161,7 @@ Private Sub cboClass_Click()
  
  List.List(List.ListIndex) = cboClass.Text & " to " & cboPromotion.Text
  
- If List.ItemData(List.ListIndex) < &H21046 + BasicClasses * 2 + 3 Then
+ If List.ItemData(List.ListIndex) < PROMOTIONS_ORIGINAL_OFFSET + BasicClasses * 2 + 3 Then
   RomDump(List.ItemData(List.ListIndex)) = cboClass.ItemData(cboClass.ListIndex)
   RomDump(List.ItemData(List.ListIndex) + BasicClasses + 1) = cboPromotion.ItemData(cboPromotion.ListIndex)
  Else
@@ -179,7 +179,7 @@ Private Sub cboSpecial_Click()
 
  If Loading = False Then
   
-  RomDump(&H21046 + BasicClasses * 2 + SpecialClasses * 2 + 5 + List.ListIndex - BasicClasses) = cboSpecial.ItemData(cboSpecial.ListIndex)
+  RomDump(PROMOTIONS_ORIGINAL_OFFSET + BasicClasses * 2 + SpecialClasses * 2 + 5 + List.ListIndex - BasicClasses) = cboSpecial.ItemData(cboSpecial.ListIndex)
    
  End If
 
@@ -214,7 +214,7 @@ Private Sub cmdReallocate_Click()
  
   Counter = 0
   
-  For Index = &H21046 + 1 To &H21046 + SubIndex
+  For Index = PROMOTIONS_ORIGINAL_OFFSET + 1 To PROMOTIONS_ORIGINAL_OFFSET + SubIndex
    
    NotPromoted(Counter) = RomDump(Index)
    IsPromoted(Counter) = RomDump(Index + SubIndex + 1)
@@ -222,7 +222,7 @@ Private Sub cmdReallocate_Click()
    Counter = Counter + 1
   Next
  
-  For Index = &H21046 + SubIndex * 2 + 3 To &H21046 + SubIndex * 2 + 2 + 17 - SubIndex
+  For Index = PROMOTIONS_ORIGINAL_OFFSET + SubIndex * 2 + 3 To PROMOTIONS_ORIGINAL_OFFSET + SubIndex * 2 + 2 + 17 - SubIndex
   
    NotPromoted(Counter) = RomDump(Index)
    IsPromoted(Counter) = RomDump(Index + 17 - SubIndex + 1)
@@ -236,19 +236,19 @@ Private Sub cmdReallocate_Click()
   
  '' For Index = &H21046 To &H21046 + 17 * 2 + 2
  
- Index = &H21046
+ Index = PROMOTIONS_ORIGINAL_OFFSET
    
  RomDump(Index) = newBasicClasses
  RomDump(Index + newBasicClasses + 1) = newBasicClasses
  
- For Index = &H21046 + 1 To &H21046 + newBasicClasses
+ For Index = PROMOTIONS_ORIGINAL_OFFSET + 1 To PROMOTIONS_ORIGINAL_OFFSET + newBasicClasses
    RomDump(Index) = NotPromoted(Counter)
    RomDump(Index + newBasicClasses + 1) = IsPromoted(Counter)
    
    Counter = Counter + 1
  Next Index
  
- SubIndex = &H21046 + newBasicClasses * 2 + 2
+ SubIndex = PROMOTIONS_ORIGINAL_OFFSET + newBasicClasses * 2 + 2
  
  
  RomDump(SubIndex) = 17 - newBasicClasses
@@ -277,12 +277,12 @@ Private Sub GenerateList()
  
  List.Clear
  
- BasicClasses = RomDump(&H21046)
+ BasicClasses = RomDump(PROMOTIONS_ORIGINAL_OFFSET)
  SpecialClasses = 17 - BasicClasses
  
  ClassNumber.Text = BasicClasses
  
- For Index = &H21047 To &H21046 + BasicClasses
+ For Index = PROMOTIONS_ORIGINAL_OFFSET + 1 To PROMOTIONS_ORIGINAL_OFFSET + BasicClasses
  
   List.AddItem ClassName(RomDump(Index)) & " to " & ClassName(RomDump(Index + BasicClasses + 1))
   List.ItemData(List.ListCount - 1) = Index
@@ -293,7 +293,7 @@ Private Sub GenerateList()
  
  If SpecialClasses > 0 Then
  
- For Index = &H21046 + BasicClasses * 2 + 3 To &H21046 + BasicClasses * 2 + 2 + SpecialClasses
+ For Index = PROMOTIONS_ORIGINAL_OFFSET + BasicClasses * 2 + 3 To PROMOTIONS_ORIGINAL_OFFSET + BasicClasses * 2 + 2 + SpecialClasses
  
   List.AddItem ClassName(RomDump(Index)) & " to " & ClassName(RomDump(Index + SpecialClasses + 1))
   List.ItemData(List.ListCount - 1) = Index
@@ -314,13 +314,13 @@ Private Sub Form_Load()
  ' BasicClasses = RomDump(&H21046)
  ' SpecialClasses = 17 - BasicClasses
  
- BasicClasses = RomDump(&H21046)
- SpecialClasses = RomDump(&H21046 + BasicClasses * 2 + 2)
+ BasicClasses = RomDump(PROMOTIONS_ORIGINAL_OFFSET)
+ SpecialClasses = RomDump(PROMOTIONS_ORIGINAL_OFFSET + BasicClasses * 2 + 2)
  
  
  ClassNumber.Text = BasicClasses
  
- For Index = &H21047 To &H21046 + BasicClasses
+ For Index = PROMOTIONS_ORIGINAL_OFFSET + 1 To PROMOTIONS_ORIGINAL_OFFSET + BasicClasses
  
   List.AddItem ClassName(RomDump(Index)) & " to " & ClassName(RomDump(Index + BasicClasses + 1))
   List.ItemData(List.ListCount - 1) = Index
@@ -331,7 +331,7 @@ Private Sub Form_Load()
  
  If SpecialClasses > 0 Then
  
- For Index = &H21046 + BasicClasses * 2 + 3 To &H21046 + BasicClasses * 2 + 2 + SpecialClasses
+ For Index = PROMOTIONS_ORIGINAL_OFFSET + BasicClasses * 2 + 3 To PROMOTIONS_ORIGINAL_OFFSET + BasicClasses * 2 + 2 + SpecialClasses
  
   List.AddItem ClassName(RomDump(Index)) & " to " & ClassName(RomDump(Index + SpecialClasses + 1))
   List.ItemData(List.ListCount - 1) = Index
@@ -386,12 +386,12 @@ Private Sub List_Click()
  
  If List.ListIndex >= BasicClasses Then
  
-   PromotionItems = RomDump(&H21046 + BasicClasses * 2 + SpecialClasses * 2 + 4)
+   PromotionItems = RomDump(PROMOTIONS_ORIGINAL_OFFSET + BasicClasses * 2 + SpecialClasses * 2 + 4)
    
    If List.ListIndex - BasicClasses < PromotionItems Then
    Loading = True
    
-    SetCombo cboSpecial, CLng(RomDump(&H21046 + BasicClasses * 2 + SpecialClasses * 2 + 5 + List.ListIndex - BasicClasses))
+    SetCombo cboSpecial, CLng(RomDump(PROMOTIONS_ORIGINAL_OFFSET + BasicClasses * 2 + SpecialClasses * 2 + 5 + List.ListIndex - BasicClasses))
     cboSpecial.Visible = True
     
    Loading = False

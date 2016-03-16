@@ -1049,7 +1049,7 @@ Private Function GetNameAddress(ByVal iName As Long) As Long
  Dim Index As Long
  Dim Count As Long
  
- Count = 98110
+ Count = CLASSNAMES_ORIGINAL_OFFSET
 
  Do While Index < iName
   Count = Count + RomDump(Count) + 1

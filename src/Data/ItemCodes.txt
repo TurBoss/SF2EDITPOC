@@ -1,0 +1,128 @@
+$H0, Medical Herb
+&H1, Healing Seed
+&H2, Healing Drop
+&H3, Antidote
+&H4, Angel Wing
+&H5, Fairy Powder
+&H6, Healing Water
+&H7, Fairy Tear
+&H8, Healing Rain
+&H9, Power Water
+&HA, Protect Milk
+&HB, Quick Chicken
+&HC, Running Pimento
+&HD, Cheerful Bread
+&HE, Bright Honey
+&HF, Brave Apple
+&H10, Shining Ball
+&H11, Blizzard
+&H12, Holy Thunder
+&H13, Power Ring
+&H14, Protect Ring
+&H15, Quick Ring
+&H16, Running Ring
+&H17, White Ring
+&H18, Black Ring
+&H19, Evil Ring
+&H1A, Leather Glove
+&H1B, Power Glove
+&H1C, Brass Knuckles
+&H1D, Iron Knuckles
+&H1E, Misty Knuckles
+&H1F, Giant Knuckles
+&H20, Evil Knuckles
+&H21, Short Axe
+&H22, Hand Axe
+&H23, Middle Axe
+&H24, Power Axe
+&H25, Battle Axe
+&H26, Large Axe
+&H27, Great Axe
+&H28, Heat Axe
+&H29, Atlas Axe
+&H2A, Ground Axe
+&H2B, Rune Axe
+&H2C, Evil Axe
+&H2D, Wooden Arrow
+&H2E, Iron Arrow
+&H2F, Steel Arrow
+&H30, Robin Arrow
+&H31, Assault Shell
+&H32, Great Shot
+&H33, Nazca Cannon
+&H34, Buster Shot
+&H35, Hyper Cannon
+&H36, Grand Cannon
+&H37, Evil Shot
+&H38, Wooden Stick
+&H39, Short Sword
+&H3A, Middle Sword
+&H3B, Long Sword
+&H3C, Steel Sword
+&H3D, Achilles Sword
+&H3E, Broad Sword
+&H3F, Buster Sword
+&H40, Great Sword
+&H41, Critical Sword
+&H42, Battle Sword
+&H43, Force Sword
+&H44, Counter Sword
+&H45, Levanter
+&H46, Dark Sword
+&H47, Wooden Sword
+&H48, Short Spear
+&H49, Bronze Lance
+&H4A, Spear
+&H4B, Steel Lance
+&H4C, Power Spear
+&H4D, Heavy Lance
+&H4E, Javelin
+&H4F, Chrome Lance
+&H50, Valkyrie
+&H51, Holy Lance
+&H52, Mist Javelin
+&H53, Halberd
+&H54, Evil Lance
+&H55, Wooden Rod
+&H56, Short Rod
+&H57, Bronze Rod
+&H58, Iron Rod
+&H59, Power Stick
+&H5A, Flail
+&H5B, Guardian Staff
+&H5C, Indra Staff
+&H5D, Mage Staff
+&H5E, Wish Staff
+&H5F, Great Rod
+&H60, Supply Staff
+&H61, Holy Staff
+&H62, Freeze Staff
+&H63, Goddess Staff
+&H64, Mystery Staff
+&H65, Demon Rod
+&H66, Iron Ball
+&H67, Short Knife
+&H68, Dagger
+&H69, Knife
+&H6A, Thieve's Dagger
+&H6B, Katana
+&H6C, Ninja Katana
+&H6D, Gisarme
+&H6E, Taros Sword
+&H6F, Right of Hope
+&H70, Wooden Pannel
+&H71, Sky Orb
+&H72, Cannon
+&H73, Dry Stone
+&H74, Dynamite
+&H75, Arm of Golem
+&H76, Pegasus Wing
+&H77, Warrior's Pride
+&H78, Silver Tank
+&H79, Secret Book
+&H7A, Vigor Ball
+&H7B, Mithril
+&H7C, Life Ring
+&H7D, Cotton Balloon
+&H7E, Chirrup Sandles
+&H7F, Empty

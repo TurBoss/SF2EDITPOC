@@ -15,11 +15,12 @@ Public Sub Load_Shops()
   
   Index = 0
     
+  StoreStart = SHOPITEMS_ORIGINAL_OFFSET
+  StoreEnd = SHOPITEMS_ORIGINAL_OFFSET + SHOPITEMS_ORIGINAL_LENGTH - 1
+    
   Freedfile = FreeFile()
     
   Open App.Path & "/Data/Stores.txt" For Input As #Freedfile
-   Input #Freedfile, StoreStart
-   Input #Freedfile, StoreEnd
    
    For Index = 0 To 30
         

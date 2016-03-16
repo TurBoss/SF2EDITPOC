@@ -227,7 +227,7 @@ Private Sub mnuFixCharPointTable_Click()
  Counter = 0
  MetaCounter = 1
  
- Index = &H1EE2F0
+ Index = ALLYSTATSDATASTART_ORIGINAL_OFFSET
 
  Do While Counter < 29
 
@@ -255,9 +255,9 @@ Private Sub mnuFixCharPointTable_Click()
 
   Counter = Counter + 1
 
-  RomDump(&H1EE271 + 4 * Counter) = CByte(Fix(Index / 65536#))
-  RomDump(&H1EE271 + 4 * Counter + 1) = Fix((Index - Fix(Index / 65536#) * 65536#) / 256#)
-  RomDump(&H1EE271 + 4 * Counter + 2) = CByte(Index - Fix(Fix(Index / 256#) * 256#))
+  RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 4 * Counter) = CByte(Fix(Index / 65536#))
+  RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 4 * Counter + 1) = Fix((Index - Fix(Index / 65536#) * 65536#) / 256#)
+  RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 4 * Counter + 2) = CByte(Index - Fix(Fix(Index / 256#) * 256#))
 
   Do While RomDump(Index) < 254
    Index = Index + 1
@@ -272,25 +272,25 @@ Private Sub mnuFixCharPointTable_Click()
  '' Update joining guy data pointers
  Index = Index + 1
  
- RomDump(&H1EE009) = CByte(Fix(Index / 65536#))
- RomDump(&H1EE009 + 1) = Fix((Index - Fix(Index / 65536#) * 65536#) / 256#)
- RomDump(&H1EE009 + 2) = CByte(Index - Fix(Fix(Index / 256#) * 256#))
+ RomDump(ALLYSTARTDATAPOINTER_ORIGINAL_OFFSET + 1) = CByte(Fix(Index / 65536#))
+ RomDump(ALLYSTARTDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) = Fix((Index - Fix(Index / 65536#) * 65536#) / 256#)
+ RomDump(ALLYSTARTDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = CByte(Index - Fix(Fix(Index / 256#) * 256#))
 
  'Update Class Pointer
  
  Index = Index + 192
 
- RomDump(&H1EE00D) = CByte(Fix(Index / 65536#))
- RomDump(&H1EE00D + 1) = Fix((Index - Fix(Index / 65536#) * 65536#) / 256#)
- RomDump(&H1EE00D + 2) = CByte(Index - Fix(Fix(Index / 256#) * 256#))
+ RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1) = CByte(Fix(Index / 65536#))
+ RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) = Fix((Index - Fix(Index / 65536#) * 65536#) / 256#)
+ RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = CByte(Index - Fix(Fix(Index / 256#) * 256#))
  
  'Update 01010101 Pointer
  
  Index = Index + 155
  
- RomDump(&H1EE015) = CByte(Fix(Index / 65536#))
- RomDump(&H1EE015 + 1) = Fix((Index - Fix(Index / 65536#) * 65536#) / 256#)
- RomDump(&H1EE015 + 2) = CByte(Index - Fix(Fix(Index / 256#) * 256#))
+ RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1) = CByte(Fix(Index / 65536#))
+ RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 1) = Fix((Index - Fix(Index / 65536#) * 65536#) / 256#)
+ RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) = CByte(Index - Fix(Fix(Index / 256#) * 256#))
 
   
   MsgBox "Pointer table adjusted.", vbOKOnly
@@ -370,15 +370,15 @@ Private Sub mnuSave_Click()
   NamesPointerCount = NamesPointerCount + mSpellNameLength(Index) + 1
   
   If Index = 43 Then
-   RomDump(33481) = CByte(Fix(NamesPointerCount / 65536#))
-   RomDump(33482) = Fix((NamesPointerCount - Fix(NamesPointerCount / 65536#) * 65536#) / 256#)
-   RomDump(33483) = CByte(NamesPointerCount - Fix(Fix(NamesPointerCount / 256#) * 256#))
+   RomDump(ALLYNAMES_ORIGINAL_OFFSET + 1) = CByte(Fix(NamesPointerCount / 65536#))
+   RomDump(ALLYNAMES_ORIGINAL_OFFSET + 2) = Fix((NamesPointerCount - Fix(NamesPointerCount / 65536#) * 65536#) / 256#)
+   RomDump(ALLYNAMES_ORIGINAL_OFFSET + 3) = CByte(NamesPointerCount - Fix(Fix(NamesPointerCount / 256#) * 256#))
   End If
      
   If Index = 73 Then
-   RomDump(33485) = CByte(Fix(NamesPointerCount / 65536#))
-   RomDump(33486) = Fix((NamesPointerCount - Fix(NamesPointerCount / 65536#) * 65536#) / 256#)
-   RomDump(33487) = CByte(NamesPointerCount - Fix(Fix(NamesPointerCount / 256#) * 256#))
+   RomDump(ENEMYNAMES_ORIGINAL_OFFSET + 1) = CByte(Fix(NamesPointerCount / 65536#))
+   RomDump(ENEMYNAMES_ORIGINAL_OFFSET + 2) = Fix((NamesPointerCount - Fix(NamesPointerCount / 65536#) * 65536#) / 256#)
+   RomDump(ENEMYNAMES_ORIGINAL_OFFSET + 3) = CByte(NamesPointerCount - Fix(Fix(NamesPointerCount / 256#) * 256#))
   End If
      
  Next Index
@@ -414,9 +414,9 @@ Private Sub mnuSave_Click()
    
    NamesPointerCount = NamesPointerCount + 1
    
-   RomDump(65673) = CByte(Fix(NamesPointerCount / 65536#))
-   RomDump(65674) = Fix((NamesPointerCount - Fix(NamesPointerCount / 65536#) * 65536#) / 256#)
-   RomDump(65675) = CByte(NamesPointerCount - Fix(Fix(NamesPointerCount / 256#) * 256#))
+   RomDump(CLASSNAMES_ORIGINAL_OFFSET + 1) = CByte(Fix(NamesPointerCount / 65536#))
+   RomDump(CLASSNAMES_ORIGINAL_OFFSET + 2) = Fix((NamesPointerCount - Fix(NamesPointerCount / 65536#) * 65536#) / 256#)
+   RomDump(CLASSNAMES_ORIGINAL_OFFSET + 3) = CByte(NamesPointerCount - Fix(Fix(NamesPointerCount / 256#) * 256#))
   End If
      
  Next Index

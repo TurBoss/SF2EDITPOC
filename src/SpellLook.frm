@@ -55,8 +55,8 @@ Private Sub cbospell_Click()
  Dim DisplayString As String
  
  Dim Address As Long
- 
- Address = &H177BF - 1 + 32 - 32 * 206 + 32 * cbospell.ItemData(cbospell.ListIndex)
+ ' Wiz note : 0x177BF is inside Spell Defs (starts at 0x176A6) ... I don't get it.
+ Address = &H177BF - 1 + 32 - 32 * 206 + 32 * cboSpell.ItemData(cboSpell.ListIndex)
 
  For Index = Address To Address + 31
  
@@ -76,8 +76,8 @@ Private Sub Form_Load()
  Dim Address As Long
  
  For Index = 0 To UBound(SpellName())
-  cbospell.AddItem SpellName(Index)
-  cbospell.ItemData(Index) = SpellCode(Index)
+  cboSpell.AddItem SpellName(Index)
+  cboSpell.ItemData(Index) = SpellCode(Index)
  Next
  
  Address = &H177BF - 1 + 64 * 10

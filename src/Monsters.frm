@@ -1255,8 +1255,8 @@ Private Sub cboName_Click()
   txtHPTimes.Text = RomDump(Address + 12)
   txtHP.Text = RomDump(Address + 13)
   txtMP.Text = RomDump(Address + 16)
-  txtATK.Text = RomDump(Address + 18)
-  txtDEF.Text = RomDump(Address + 20)
+  txtAtk.Text = RomDump(Address + 18)
+  txtDef.Text = RomDump(Address + 20)
   txtAGI.Text = RomDump(Address + 22)
   txtMove.Text = RomDump(Address + 24)
   
@@ -1269,7 +1269,7 @@ Private Sub cboName_Click()
   txtBattlePalette.Text = RomDump(Index + 1)
     
     
-  Index = 48844 + cboName.ListIndex * 2
+  Index = ENEMYGOLD_ORIGINAL_OFFSET + cboName.ListIndex * 2
     
   txtGold.Text = CLng(RomDump(Index)) * 256 + RomDump(Index + 1)
     
@@ -1514,8 +1514,8 @@ End Sub
 Private Sub txtATK_Change()
  Dim Result As Byte
  
- If ValidateInput(txtATK, False, True) = True Then
-  Result = txtATK.Text
+ If ValidateInput(txtAtk, False, True) = True Then
+  Result = txtAtk.Text
   RomDump(Address + 18) = Result
  End If
 End Sub
@@ -1578,8 +1578,8 @@ End Sub
 Private Sub txtDEF_Change()
  Dim Result As Byte
  
- If ValidateInput(txtDEF, False, True) = True Then
-  Result = txtDEF.Text
+ If ValidateInput(txtDef, False, True) = True Then
+  Result = txtDef.Text
   RomDump(Address + 20) = Result
  End If
 End Sub
@@ -1593,7 +1593,7 @@ Private Sub txtGold_Change()
  Dim Result As Byte
  Dim SubAddress As Long
  
- SubAddress = 48844 + cboName.ListIndex * 2
+ SubAddress = ENEMYGOLD_ORIGINAL_OFFSET + cboName.ListIndex * 2
 
  If ValidateInput(txtGold, True, True) = True Then
   
@@ -1620,7 +1620,7 @@ Private Sub txtGold_LostFocus()
  Dim Result As Byte
  Dim SubAddress As Long
  
- SubAddress = 48844 + cboName.ListIndex * 2
+ SubAddress = ENEMYGOLD_ORIGINAL_OFFSET + cboName.ListIndex * 2
  
  If ValidateInput(txtGold, True) = True Then
   
@@ -1742,8 +1742,8 @@ End Sub
 Private Sub txtAtk_LostFocus()
  Dim Result As Byte
  
- If ValidateInput(txtATK, False) = True Then
-  Result = txtATK.Text
+ If ValidateInput(txtAtk, False) = True Then
+  Result = txtAtk.Text
   RomDump(Address + 18) = Result
  End If
 End Sub
@@ -1751,8 +1751,8 @@ End Sub
 Private Sub txtDef_LostFocus()
  Dim Result As Byte
  
- If ValidateInput(txtDEF, False) = True Then
-  Result = txtDEF.Text
+ If ValidateInput(txtDef, False) = True Then
+  Result = txtDef.Text
   RomDump(Address + 20) = Result
  End If
 End Sub
@@ -1874,7 +1874,7 @@ Private Function GetNameAddress(ByVal iName As Long) As Long
  Dim Index As Long
  Dim Count As Long
  
- Count = 64394
+ Count = ENEMYNAMES_ORIGINAL_OFFSET
 
  Do While Index < iName
   Count = Count + RomDump(Count) + 1

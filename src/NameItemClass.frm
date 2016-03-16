@@ -222,7 +222,7 @@ Private Sub Form_Load()
  Dim Index As Long
   
  lblSize.Caption = GetItemNameSize()
- lblMax.Caption = 98302 - 96622
+ lblMax.Caption = 98302 - 96622 ' available space for class names in original rom
  
  For Index = 0 To UBound(mItemName())
   

@@ -1,0 +1,70 @@
+
+ About the Shining Force 2 Game Editor
+ -------------------------------------
+
+ 29 July 06
+ Release 1.4 - www.meanderingdesigns.com/utilities/
+
+
+ Why?
+ ----
+
+ Because Shining Force 2 is one of the best games of all time, and
+ Genesis game editors are extremely rare. Also, I came across some Game
+ Genie codes that changed the stats on weapons, knew that I could alter
+ these bytes directly in the ROM permanently with almost no effort.
+
+
+ How?
+ ----
+
+ Well, there aren't really that many codes out there for this game.
+ But the item one let me see where the item data was stored, and fiddling
+ with it for awhile unlocked the schema of what each of these numbers
+ in these banks meant.
+
+ The other stuff wasn't so simple. A LOT of number searches in differnt
+ orders and spacing. At the very least, I knew the name list in the rom
+ matched the order the data for these names was stored. I used Moogie's
+ Shining Force 2 website ( http://sf2.shiningforcecentral.com/ ) as a
+ primary reference. A couple errors there (the demon rod and sleep-spell
+ info) scared the crap out of me; I thought something might have been
+ wrong with my universe. I think Jaha's starting agility might be wrong
+ too...
+
+ Moogie's website had some scans from a book with character growth 
+ patterns (if some stat will go up fast and then slow down, and such).
+ This saved me an immense amount of time. Those charts aren't 100%
+ accurate of course, especially with unpromoted characters with small
+ stats.
+
+
+ Credit
+ ------
+
+ I came across the game genie codes on Gamefaqs originally. The man
+ who developed them is named Tony Hedstrom, and has a page full
+ of his codes at: http://www.angelfire.com/games2/codehut/
+
+ It was necessary to look up the Super MagicDrive format to write
+ the happy SMD -> BIN function. The document I used to learn it was
+ included in a zip file for the GROM utility, and was written by
+ Bart Trzynadlowski back in 1999.
+
+
+ Updates?
+ --------
+
+ Not for a very long while, unless someone with more skillZ (or luck) 
+ than me takes the initiative.
+
+
+ In Closing
+ ----------
+
+ If you'd like to help me out personally in a personal manner, you can
+ advertise my non-sequitur comic at www.incrediblefurpals.com a bit. Tell
+ your grandma, your grandma's grandma, and your cousin Jimmy. Put it in
+ a dark corner of your signature when you talk on forums. Scrape the URL
+ into the side of your car with a butterknife. Any level of subliminal
+ or superliminal effort helps a lot.

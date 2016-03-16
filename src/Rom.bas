@@ -23,6 +23,7 @@ Public pStats() As Long
 Public pJoinData As Long
 
 Public isExpanded As Boolean
+Public disasmMode As Boolean
 
 ' Just input the first byte of the pointer and it'll load the rest
 Public Function LoadPointer(PointerAddress As Long) As Long
@@ -71,17 +72,17 @@ Public Sub InitializeAddresses()
   Dim aLong As Long
   Dim wQuit As Boolean
   
-  pMonsterData = &H1B1A66   'LoadPointer(129077) + 102
-  pItemData = LoadPointer(65676)
-  pClassData = LoadPointer(2023436)
-  pBattleSprites = 129030 'LoadPointer(1627093)       ' &H1F806
+  pMonsterData = ENEMYDATA_ORIGINAL_OFFSET
+  pItemData = ITEMDEFS_ORIGINAL_OFFSET
+  pClassData = CLASSDATA_ORIGINAL_OFFSET
+  pBattleSprites = BATTLESPRITES_ORIGINAL_OFFSET
 
-  ' pPromotions = LoadPointer(1496220)  doesn't work
-  pSpells = LoadPointer(65680)
-  pItemNames = LoadPointer(65668)
-  pSpellNames = LoadPointer(33476)
+  pPromotions = PROMOTIONS_ORIGINAL_OFFSET
+  pSpells = SPELLDEFS_ORIGINAL_OFFSET
+  pItemNames = ITEMNAMES_ORIGINAL_OFFSET
+  pSpellNames = SPELLNAMES_ORIGINAL_OFFSET
   
-  pJoinData = LoadPointer(2023432)
+  pJoinData = ALLYSTARTDATA_ORIGINAL_OFFSET
 
   ' Gather up each pointer to each "dude"
   Index = 0
@@ -90,7 +91,7 @@ Public Sub InitializeAddresses()
   
    ReDim Preserve pStats(Index)
         
-   aLong = 2024048 + 4 * Index
+   aLong = ALLYSTATS_ORIGINAL_OFFSET + 4 * Index
         
    pStats(Index) = LoadPointer(aLong)
    
@@ -116,7 +117,7 @@ Public Sub InitializeAddresses()
 
   isExpanded = False
 
-  If LoadPointer(2023444) < 1888000 Then
+  If LoadPointer(2023444) < 1888000 Then ' jewel end screen layout pointer
    isExpanded = True
   End If
 
@@ -135,7 +136,7 @@ Public Sub ReloadPStats()
  Do
   
 ' For Index = 0 To UBound(pStats())
-   aLong = 2024048 + 4 * Index
+   aLong = ALLYSTATS_ORIGINAL_OFFSET + 4 * Index
         
    pStats(Index) = LoadPointer(aLong)
    Index = Index + 1

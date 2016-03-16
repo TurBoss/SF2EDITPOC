@@ -811,7 +811,7 @@ Private Sub cmdAddSpell_Click()
  
  Index = Index + 32 * 6 + 1 + 32 * 5
  
- If Index - JEWELENDSCREENLAYOUT_ORIGINAL_OFFSET > 500 And isExpanded = False Then
+ If Index - &H1EE930 > 500 And isExpanded = False Then
   MsgBox "This program limits expanding this section beyond 500 times", vbOKOnly
   Exit Sub
  End If
@@ -830,7 +830,6 @@ Private Sub cmdAddSpell_Click()
  If isExpanded = False Then
  
  'Update 01010101 Pointer
- 'Wiz note : this address is the Jewel End Screen Layout pointer. Why manipulate it ?
  If RomDump(&H1EE015 + 2) < 254 Then
    RomDump(&H1EE015 + 2) = RomDump(&H1EE015 + 2) + 2
  Else
@@ -846,30 +845,30 @@ Private Sub cmdAddSpell_Click()
  End If
  
  'Update Class Pointer
- If RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) < 254 Then
-   RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) + 2
+ If RomDump(&H1EE00D + 2) < 254 Then
+   RomDump(&H1EE00D + 2) = RomDump(&H1EE00D + 2) + 2
  Else
-   If RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = 254 Then
-     RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = 0
+   If RomDump(&H1EE00D + 2) = 254 Then
+     RomDump(&H1EE00D + 2) = 0
    Else
-     RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = 1
+     RomDump(&H1EE00D + 2) = 1
    End If
  
-   RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) = RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) + 1
+   RomDump(&H1EE00D + 1) = RomDump(&H1EE00D + 1) + 1
  End If
   
  
  'Update Join Data Pointer
- If RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) < 254 Then
-   RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) = RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) + 2
+ If RomDump(&H1EE009 + 2) < 254 Then
+   RomDump(&H1EE009 + 2) = RomDump(&H1EE009 + 2) + 2
  Else
-   If RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) = 254 Then
-     RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) = 0
+   If RomDump(&H1EE009 + 2) = 254 Then
+     RomDump(&H1EE009 + 2) = 0
    Else
-     RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) = 1
+     RomDump(&H1EE009 + 2) = 1
    End If
  
-   RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 1) = RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 1) + 1
+   RomDump(&H1EE009 + 1) = RomDump(&H1EE009 + 1) + 1
  End If
  
  
@@ -904,16 +903,16 @@ Private Sub cmdAddSpell_Click()
  
  For Index = Iterations + 1 To UBound(GuyBlocks())   '29
 
- If RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) < 254 Then
-   RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) = RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) + 2
+ If RomDump(&H1EE271 + 2 + 4 * Index) < 254 Then
+   RomDump(&H1EE271 + 2 + 4 * Index) = RomDump(&H1EE271 + 2 + 4 * Index) + 2
  Else
-   If RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) = 254 Then
-     RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) = 0
+   If RomDump(&H1EE271 + 2 + 4 * Index) = 254 Then
+     RomDump(&H1EE271 + 2 + 4 * Index) = 0
    Else
-     RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) = 1
+     RomDump(&H1EE271 + 2 + 4 * Index) = 1
    End If
 
-   RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 1 + 4 * Index) = RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 1 + 4 * Index) + 1 '' 2 isn't the same number as 1 lolololol
+   RomDump(&H1EE271 + 1 + 4 * Index) = RomDump(&H1EE271 + 1 + 4 * Index) + 1 '' 2 isn't the same number as 1 lolololol
  End If
 
  Next Index
@@ -990,45 +989,45 @@ Private Sub cmdRemoveSpell_Click()
  If isExpanded = False Then
  
  'Update 01010101 Pointer
- If RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) > 1 Then
-   RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) = RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) - 2
+ If RomDump(&H1EE015 + 2) > 1 Then
+   RomDump(&H1EE015 + 2) = RomDump(&H1EE015 + 2) - 2
  Else
-   If RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) = 1 Then
-     RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) = 255
+   If RomDump(&H1EE015 + 2) = 1 Then
+     RomDump(&H1EE015 + 2) = 255
    Else
-     RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 2) = 254
+     RomDump(&H1EE015 + 2) = 254
    End If
  
-   RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 1) = RomDump(JEWELENDSCREENLAYOUTPOINTER_ORIGINAL_OFFSET + 1 + 1) - 1
+   RomDump(&H1EE015 + 1) = RomDump(&H1EE015 + 1) - 1
  End If
  
  End If
  
  'Update Class Pointer
- If RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) > 1 Then
-   RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) - 2
+ If RomDump(&H1EE00D + 2) > 1 Then
+   RomDump(&H1EE00D + 2) = RomDump(&H1EE00D + 2) - 2
  Else
-   If RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = 1 Then
-     RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = 255
+   If RomDump(&H1EE00D + 2) = 1 Then
+     RomDump(&H1EE00D + 2) = 255
    Else
-     RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 2) = 254
+     RomDump(&H1EE00D + 2) = 254
    End If
  
-   RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) = RomDump(CLASSDATAPOINTER_ORIGINAL_OFFSET + 1 + 1) - 1
+   RomDump(&H1EE00D + 1) = RomDump(&H1EE00D + 1) - 1
  End If
   
  
  'Update Join Data Pointer
- If RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) > 1 Then
-   RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) = RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) - 2
+ If RomDump(&H1EE009 + 2) > 1 Then
+   RomDump(&H1EE009 + 2) = RomDump(&H1EE009 + 2) - 2
  Else
-   If RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) = 1 Then
-     RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) = 255
+   If RomDump(&H1EE009 + 2) = 1 Then
+     RomDump(&H1EE009 + 2) = 255
    Else
-     RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 2) = 254
+     RomDump(&H1EE009 + 2) = 254
    End If
  
-   RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 1) = RomDump(ALLYSTARTDATA_ORIGINAL_OFFSET + 1 + 1) - 1
+   RomDump(&H1EE009 + 1) = RomDump(&H1EE009 + 1) - 1
  End If
  
  
@@ -1063,16 +1062,16 @@ Private Sub cmdRemoveSpell_Click()
  
  For Index = Iterations + 1 To UBound(GuyBlocks())   '29
  
- If RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) > 1 Then
-   RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) = RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) - 2
+ If RomDump(&H1EE271 + 2 + 4 * Index) > 1 Then
+   RomDump(&H1EE271 + 2 + 4 * Index) = RomDump(&H1EE271 + 2 + 4 * Index) - 2
  Else
-   If RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) = 1 Then
-     RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) = 255
+   If RomDump(&H1EE271 + 2 + 4 * Index) = 1 Then
+     RomDump(&H1EE271 + 2 + 4 * Index) = 255
    Else
-     RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 2 + 4 * Index) = 254
+     RomDump(&H1EE271 + 2 + 4 * Index) = 254
    End If
  
-   RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 1 + 4 * Index) = RomDump(ALLYSTATS_ORIGINAL_OFFSET + 1 + 1 + 4 * Index) - 1
+   RomDump(&H1EE271 + 1 + 4 * Index) = RomDump(&H1EE271 + 1 + 4 * Index) - 1
  End If
   
  Next Index
@@ -1456,7 +1455,7 @@ Private Function GetOffsetAddress(iIndex As Long) As Long
  Dim Count As Long
  Dim Iterations As Long
  
- Count = ALLYSTATS_ORIGINAL_OFFSET + 1
+ Count = &H1EE271
 
  For Index = iIndex To 0 Step -1
    If Index > 0 Then

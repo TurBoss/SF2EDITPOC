@@ -1,6 +1,8 @@
 Attribute VB_Name = "Constants"
 Option Explicit
 
+Public Const SF2EDITCONF_FILENAME As String = "sf2edit.conf"
+
 Public Const ENEMYDATA_ORIGINAL_OFFSET As Long = &H1B1A66
 
 Public Const ENEMYGOLD_ORIGINAL_OFFSET As Long = &HBECC&

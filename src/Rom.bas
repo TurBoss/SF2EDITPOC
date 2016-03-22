@@ -66,6 +66,86 @@ Public Sub SetPointer(PointerAddress As Long, NewValue As Long)
 
 End Sub
 
+Public Sub LoadRom(FileAbsolutePath As String)
+
+On Error GoTo OnError
+
+     Dim Freedfile As Long
+     Freedfile = FreeFile()
+ 
+     Open FileAbsolutePath For Binary As #Freedfile
+      If UCase(Right(FileAbsolutePath, 3)) <> "SMD" Then  'And Right(File1.FileName, 3) <> "SMD" Then
+       ReDim RomDump(LOF(Freedfile) - 1)
+      Else
+       ReDim RomDump(&H1FFFFF)
+      End If
+      Get #Freedfile, , RomDump
+     Close #Freedfile
+    
+     If UCase(Right(FileAbsolutePath, 3)) <> "SMD" Then
+      Call InitializeAddresses
+     End If
+ 
+    ' Do stuff we couldn't before load
+    CalculateStoreSpots
+    
+    RomPath = FileAbsolutePath
+    
+    Main.mnuEdit.Enabled = True
+    Main.mnuConvert.Enabled = True
+    Main.mnuMisc.Enabled = True
+    Main.mnuEditNames.Enabled = True
+    
+    Dim Index As Long
+    Dim Count As Long
+    Dim SubIndex As Long
+    
+    Index = pItemNames    '&H1796E
+    Count = 0
+    
+    Do While Count <= UBound(mItemName())
+     mItemNameLength(Count) = RomDump(Index)
+     Index = Index + 1
+     mItemName(Count) = ""
+      For SubIndex = 0 To mItemNameLength(Count) - 1
+       mItemName(Count) = mItemName(Count) & Chr(RomDump(Index + SubIndex))
+      Next SubIndex
+      Index = Index + mItemNameLength(Count)
+      If Count = 127 Then
+       Index = Index + 1
+      End If
+      Count = Count + 1
+    Loop
+     
+    '' The next name set
+    Index = pSpellNames '63940
+    Count = 0
+     
+    Do While Count <= UBound(mSpellName())
+     mSpellNameLength(Count) = RomDump(Index)
+     Index = Index + 1
+     mSpellName(Count) = ""
+     For SubIndex = 0 To mSpellNameLength(Count) - 1
+      mSpellName(Count) = mSpellName(Count) & Chr(RomDump(Index + SubIndex))
+     Next SubIndex
+     Index = Index + mSpellNameLength(Count)
+     Count = Count + 1
+    Loop
+     
+    ''' If UCase(Right(File1.FileName, 3)) <> "SMD" Then 'And Right(File1.FileName, 3) <> "SMD" Then
+    '''  GuyNumber = CountGuys()
+    ''' End If
+    Call LoadRomNames
+
+Exit Sub
+
+OnError:
+    Close Freedfile
+    MsgBox "Error while loading file.", vbOKOnly
+    
+End Sub
+
+
 Public Sub InitializeAddresses()
 
   Dim Index As Long

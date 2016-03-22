@@ -40,7 +40,7 @@ Begin VB.Form SelectFile
    Begin VB.FileListBox File1 
       Height          =   5355
       Left            =   2760
-      Pattern         =   "*.smd;*.bin;sf2editconf.txt"
+      Pattern         =   "*.smd;*.bin;sf2edit.conf"
       TabIndex        =   1
       Top             =   120
       Width           =   3735
@@ -76,116 +76,27 @@ Private Sub cmdDefault_Click()
 End Sub
 
 Private Sub cmdOpen_Click()
- Dim Freedfile As Long
- 
- On Error GoTo Ouch
- 
- Freedfile = FreeFile()
- 
- If File1.FileName = "sf2editconf.txt" Then
-    MsgBox "Selected sf2editconf.txt : applying Disasm Mode !", vbOKOnly
-    disasmMode = True
- Else
-    'MsgBox "sf2editconf.txt not selected : Rom Mode", vbOKOnly
-    disasmMode = False
- End If
- 
- Open File1.Path & "\" & File1.FileName For Binary As #Freedfile
-  
-  If UCase(Right(File1.FileName, 3)) <> "SMD" Then  'And Right(File1.FileName, 3) <> "SMD" Then
-   ReDim RomDump(LOF(Freedfile) - 1)
-  Else
-   ReDim RomDump(&H1FFFFF)
-  End If
-  
-  Get #Freedfile, , RomDump
 
- Close #Freedfile
- 
- If UCase(Right(File1.FileName, 3)) <> "SMD" Then
-  Call InitializeAddresses
- End If
- 
- ' Do stuff we couldn't before load
- CalculateStoreSpots
- 
- 
- RomPath = File1.Path & "\" & File1.FileName
- 
- Main.mnuEdit.Enabled = True
- Main.mnuConvert.Enabled = True
- Main.mnuMisc.Enabled = True
- Main.mnuEditNames.Enabled = True
- 
- 
- Dim Index As Long
- Dim Count As Long
- Dim SubIndex As Long
- 
- Index = pItemNames    '&H1796E
- Count = 0
- 
- Do While Count <= UBound(mItemName())
- 
-  mItemNameLength(Count) = RomDump(Index)
+Dim FileAbsolutePath As String
     
-  Index = Index + 1
+    If File1.FileName = SF2EDITCONF_FILENAME Then
+       disasmMode = True
+    Else
+       disasmMode = False
+    End If
     
-  mItemName(Count) = ""
+    FileAbsolutePath = File1.Path & "\" & File1.FileName
     
-  For SubIndex = 0 To mItemNameLength(Count) - 1
-   mItemName(Count) = mItemName(Count) & Chr(RomDump(Index + SubIndex))
-  Next SubIndex
- 
-  Index = Index + mItemNameLength(Count)
-  
-  If Count = 127 Then
-   Index = Index + 1
-  End If
-  
-  Count = Count + 1
- Loop
- 
-'' The next name set
+    If disasmMode = True Then
+       MsgBox "Selected " & SF2EDITCONF_FILENAME & " : Disasm Mode !", vbOKOnly
+       Call LoadDisasm(FileAbsolutePath)
+    Else
+       'MsgBox "Romfile selected : Classic Mode", vbOKOnly
+       Call LoadRom(FileAbsolutePath)
+    End If
+        
+    Unload Me
 
- Index = pSpellNames '63940
-
- Count = 0
- 
- Do While Count <= UBound(mSpellName())
- 
-  mSpellNameLength(Count) = RomDump(Index)
-    
-  Index = Index + 1
-    
-  mSpellName(Count) = ""
-  
-  For SubIndex = 0 To mSpellNameLength(Count) - 1
-   mSpellName(Count) = mSpellName(Count) & Chr(RomDump(Index + SubIndex))
-  Next SubIndex
- 
-  Index = Index + mSpellNameLength(Count)
- 
-  Count = Count + 1
- Loop
- 
-''' If UCase(Right(File1.FileName, 3)) <> "SMD" Then 'And Right(File1.FileName, 3) <> "SMD" Then
-'''  GuyNumber = CountGuys()
-''' End If
-    
-    
- Call LoadRomNames
-  
-  
- Unload Me
- 
- Exit Sub
- 
-Ouch:
- 
- Close Freedfile
- 
- MsgBox "The file you selected is incompatible with this program.", vbOKOnly
 End Sub
 
 Private Sub Dir1_Change()

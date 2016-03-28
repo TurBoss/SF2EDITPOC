@@ -488,7 +488,7 @@ Private Function GetNameAddress(ByVal iName As Long) As Long
  Dim Index As Long
  Dim Count As Long
  
- Count = 64214
+ Count = ALLYNAMES_ORIGINAL_OFFSET
 
  Do While Index < iName
   Count = Count + RomDump(Count) + 1

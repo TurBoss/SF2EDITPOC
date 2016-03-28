@@ -137,12 +137,16 @@ Private Sub MDIForm_Load()
 End Sub
 
 Private Sub MDIForm_Unload(Cancel As Integer)
- If RomPath <> "" Then
-  
-  If MsgBox("You've loaded a file, would you like to save any changes you may have made to it?", vbYesNo) = vbYes Then
+ If RomPath <> "" And disasmMode = False Then
+  If MsgBox("You've loaded a ROM file, would you like to save any changes you may have made to it?", vbYesNo) = vbYes Then
     Call mnuSave_Click
   End If
-  
+ Else
+  If DisasmConfFilePath <> "" And disasmMode = True Then
+    If MsgBox("You've loaded a Disassembly, would you like to save any changes you may have made to its files?", vbYesNo) = vbYes Then
+      Call mnuSave_Click
+    End If
+  End If
  End If
 End Sub
 

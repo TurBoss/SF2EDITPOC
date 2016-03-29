@@ -231,4 +231,108 @@ Public Sub ReloadPStats()
 End Sub
 
 
+Public Sub WriteRom()
+ Dim Freedfile As Long
+ 
+ Dim Index As Long
+ Dim SubIndex As Long
+ 
+ Dim RomPosition As Long
+
+ Dim NamesPointerCount As Long
+
+ If RomPath = "" Then
+  Exit Sub
+ End If
+ 
+ Freedfile = FreeFile()
+
+ ''''RomDump(&H17321) = 60
+
+ 
+ 'Save them spell names
+ NamesPointerCount = pSpellNames ' 63940
+ 
+ If SpellNamesInBounds = True Then
+ RomPosition = pSpellNames '63940
+ 
+ For Index = 0 To UBound(mSpellName())
+ 
+  RomDump(RomPosition) = CByte(mSpellNameLength(Index))
+  RomPosition = RomPosition + 1
+   
+  For SubIndex = 1 To mSpellNameLength(Index)
+   RomDump(RomPosition) = AscB(Mid(mSpellName(Index), SubIndex, 1))
+   RomPosition = RomPosition + 1
+         
+  Next SubIndex
+ 
+  ''' Calculate the offset for the new pointers
+  NamesPointerCount = NamesPointerCount + mSpellNameLength(Index) + 1
+  
+  If Index = 43 Then
+   RomDump(ALLYNAMES_ORIGINAL_OFFSET + 1) = CByte(Fix(NamesPointerCount / 65536#))
+   RomDump(ALLYNAMES_ORIGINAL_OFFSET + 2) = Fix((NamesPointerCount - Fix(NamesPointerCount / 65536#) * 65536#) / 256#)
+   RomDump(ALLYNAMES_ORIGINAL_OFFSET + 3) = CByte(NamesPointerCount - Fix(Fix(NamesPointerCount / 256#) * 256#))
+  End If
+     
+  If Index = 73 Then
+   RomDump(ENEMYNAMES_ORIGINAL_OFFSET + 1) = CByte(Fix(NamesPointerCount / 65536#))
+   RomDump(ENEMYNAMES_ORIGINAL_OFFSET + 2) = Fix((NamesPointerCount - Fix(NamesPointerCount / 65536#) * 65536#) / 256#)
+   RomDump(ENEMYNAMES_ORIGINAL_OFFSET + 3) = CByte(NamesPointerCount - Fix(Fix(NamesPointerCount / 256#) * 256#))
+  End If
+     
+ Next Index
+ 
+ End If
+
+
+
+ 'Save them ITEM names
+ NamesPointerCount = pItemNames '96622
+ 
+ If ItemNamesInBounds = True Then
+ RomPosition = pItemNames   '96622
+ 
+ For Index = 0 To UBound(mItemName())
+ 
+  RomDump(RomPosition) = CByte(mItemNameLength(Index))
+  RomPosition = RomPosition + 1
+   
+  For SubIndex = 1 To mItemNameLength(Index)
+   RomDump(RomPosition) = AscB(Mid(mItemName(Index), SubIndex, 1))
+   RomPosition = RomPosition + 1
+         
+  Next SubIndex
+ 
+  ''' Calculate the offset for the new pointers
+  NamesPointerCount = NamesPointerCount + mItemNameLength(Index) + 1
+
+  If Index = 127 Then
+      
+   RomDump(RomPosition) = 255
+   RomPosition = RomPosition + 1
+   
+   NamesPointerCount = NamesPointerCount + 1
+   
+   RomDump(CLASSNAMES_ORIGINAL_OFFSET + 1) = CByte(Fix(NamesPointerCount / 65536#))
+   RomDump(CLASSNAMES_ORIGINAL_OFFSET + 2) = Fix((NamesPointerCount - Fix(NamesPointerCount / 65536#) * 65536#) / 256#)
+   RomDump(CLASSNAMES_ORIGINAL_OFFSET + 3) = CByte(NamesPointerCount - Fix(Fix(NamesPointerCount / 256#) * 256#))
+  End If
+     
+ Next Index
+ 
+ End If
+ 
+
+
+ Open RomPath For Binary As #Freedfile
+  Put #1, , RomDump
+
+ Close #Freedfile
+
+ MsgBox "ROM Saved~!", vbOKOnly
+End Sub
+
+
 

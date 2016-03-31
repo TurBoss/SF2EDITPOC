@@ -12,10 +12,10 @@ Begin VB.MDIForm Main
    Begin VB.Menu mnuFile 
       Caption         =   "&File"
       Begin VB.Menu mnuOpen 
-         Caption         =   "&Open Rom"
+         Caption         =   "&Open"
       End
       Begin VB.Menu mnuSave 
-         Caption         =   "&Save Rom"
+         Caption         =   "&Save"
       End
       Begin VB.Menu Sep 
          Caption         =   "-"
@@ -24,63 +24,84 @@ Begin VB.MDIForm Main
          Caption         =   "E&xit"
       End
    End
-   Begin VB.Menu mnuEdit 
-      Caption         =   "&Edit"
+   Begin VB.Menu mnuRomEditors 
+      Caption         =   "Rom Editors"
       Enabled         =   0   'False
-      Begin VB.Menu mnuCharacterData 
-         Caption         =   "&Character Start Data"
+      Begin VB.Menu mnuEdit 
+         Caption         =   "&Edit"
+         Enabled         =   0   'False
+         Begin VB.Menu mnuCharacterData 
+            Caption         =   "&Character Start Data"
+         End
+         Begin VB.Menu mnuCharacterStats 
+            Caption         =   "Character S&tats"
+         End
+         Begin VB.Menu mnuExpandStat 
+            Caption         =   "Expand Stat Table"
+         End
+         Begin VB.Menu Sep2 
+            Caption         =   "-"
+         End
+         Begin VB.Menu mnuClass 
+            Caption         =   "&Class"
+         End
+         Begin VB.Menu mnuLevels 
+            Caption         =   "&Levels"
+         End
+         Begin VB.Menu mnuPromotions 
+            Caption         =   "&Promotions"
+         End
+         Begin VB.Menu Sep3 
+            Caption         =   "-"
+         End
+         Begin VB.Menu mnuMonsters 
+            Caption         =   "&Monsters"
+         End
+         Begin VB.Menu Sep5 
+            Caption         =   "-"
+         End
+         Begin VB.Menu mnuItems 
+            Caption         =   "&Items"
+         End
+         Begin VB.Menu mnuShops 
+            Caption         =   "&Shops"
+         End
+         Begin VB.Menu Sep4 
+            Caption         =   "-"
+         End
+         Begin VB.Menu mnuSpells 
+            Caption         =   "Sp&ells"
+         End
+         Begin VB.Menu mnuSpecial 
+            Caption         =   "M&isc"
+         End
       End
-      Begin VB.Menu mnuCharacterStats 
-         Caption         =   "Character S&tats"
+      Begin VB.Menu mnuEditNames 
+         Caption         =   "Edit Names"
+         Enabled         =   0   'False
+         Begin VB.Menu mnuItemClass 
+            Caption         =   "Items && Class"
+         End
+         Begin VB.Menu mnuSpellHeroMonster 
+            Caption         =   "Spells, Heroes && Monsters"
+         End
       End
-      Begin VB.Menu mnuExpandStat 
-         Caption         =   "Expand Stat Table"
-      End
-      Begin VB.Menu Sep2 
-         Caption         =   "-"
-      End
-      Begin VB.Menu mnuClass 
-         Caption         =   "&Class"
-      End
-      Begin VB.Menu mnuLevels 
-         Caption         =   "&Levels"
-      End
-      Begin VB.Menu mnuPromotions 
-         Caption         =   "&Promotions"
-      End
-      Begin VB.Menu Sep3 
-         Caption         =   "-"
-      End
-      Begin VB.Menu mnuMonsters 
-         Caption         =   "&Monsters"
-      End
-      Begin VB.Menu Sep5 
-         Caption         =   "-"
-      End
-      Begin VB.Menu mnuItems 
-         Caption         =   "&Items"
-      End
-      Begin VB.Menu mnuShops 
-         Caption         =   "&Shops"
-      End
-      Begin VB.Menu Sep4 
-         Caption         =   "-"
-      End
-      Begin VB.Menu mnuSpells 
-         Caption         =   "Sp&ells"
-      End
-      Begin VB.Menu mnuSpecial 
-         Caption         =   "M&isc"
+      Begin VB.Menu mnuConvert 
+         Caption         =   "Convert"
+         Enabled         =   0   'False
+         Begin VB.Menu mnuSMD2BIN 
+            Caption         =   "SMD -> BIN"
+         End
       End
    End
-   Begin VB.Menu mnuEditNames 
-      Caption         =   "Edit Names"
+   Begin VB.Menu mnuDisasmEditors 
+      Caption         =   "Disasm Editors"
       Enabled         =   0   'False
-      Begin VB.Menu mnuItemClass 
-         Caption         =   "Items && Class"
-      End
-      Begin VB.Menu mnuSpellHeroMonster 
-         Caption         =   "Spells, Heroes && Monsters"
+      Begin VB.Menu mnuNames 
+         Caption         =   "Names"
+         Begin VB.Menu mnuDisasmItemNames 
+            Caption         =   "Item Names"
+         End
       End
    End
    Begin VB.Menu mnuMisc 
@@ -95,13 +116,6 @@ Begin VB.MDIForm Main
       Begin VB.Menu mnuFixCharPointTable 
          Caption         =   "Fix Pointers"
          Visible         =   0   'False
-      End
-   End
-   Begin VB.Menu mnuConvert 
-      Caption         =   "Convert"
-      Enabled         =   0   'False
-      Begin VB.Menu mnuSMD2BIN 
-         Caption         =   "SMD -> BIN"
       End
    End
    Begin VB.Menu mnuHelp 

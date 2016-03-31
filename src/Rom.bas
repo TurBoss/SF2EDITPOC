@@ -91,6 +91,8 @@ On Error GoTo OnError
     
     RomPath = FileAbsolutePath
     
+    Main.mnuDisasmEditors.Enabled = False
+    Main.mnuRomEditors.Enabled = True
     Main.mnuEdit.Enabled = True
     Main.mnuConvert.Enabled = True
     Main.mnuMisc.Enabled = True

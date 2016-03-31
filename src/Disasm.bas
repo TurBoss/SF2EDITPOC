@@ -24,9 +24,8 @@ On Error GoTo OnError
     Call LoadDisasmConf(FileAbsolutePath)
     Call LoadDisasmFiles
     
-    Main.mnuEdit.Enabled = True
-    Main.mnuMisc.Enabled = True
-    Main.mnuEditNames.Enabled = True
+    Main.mnuRomEditors.Enabled = False
+    Main.mnuDisasmEditors.Enabled = True
 
 Exit Sub
 OnError:
